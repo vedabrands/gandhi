@@ -29,9 +29,9 @@ interface GandhiSlideProps {
 const ROMAN_NUMERALS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
 const KEN_BURNS_IMAGES = [
-  { src: './gandhi/gandhi-2.jpg', label: 'Gandhi, London, 1931' },
-  { src: './gandhi/gandhi-9.jpg', label: 'Portrait, late 1930s' },
-  { src: './gandhi/gandhi-7.jpg', label: 'Gandhi at Dandi, 5 April 1930' },
+  { src: './gandhi/gandhi-2.jpg', label: 'Gandhi, London, 1931', position: 'center top' },
+  { src: './gandhi/gandhi-9.jpg', label: 'Portrait, late 1930s', position: 'center 30%' },
+  { src: './gandhi/gandhi-7.jpg', label: 'Gandhi at Dandi, 5 April 1930', position: 'center 15%' },
 ];
 
 /** Looping Ken Burns slideshow for Slide 1 fallback */
@@ -58,9 +58,9 @@ const KenBurnsSlideshow: React.FC<{ isActive?: boolean }> = ({ isActive = true }
           initial={{ opacity: 0, scale: 1, x: 0, y: 0 }}
           animate={{
             opacity: 1,
-            scale: [1, 1.14],
-            x: currentIndex % 2 === 0 ? [0, -10] : [0, 10],
-            y: [0, -6],
+            scale: [1, 1.12],
+            x: currentIndex % 2 === 0 ? [0, -8] : [0, 8],
+            y: [0, -4],
           }}
           exit={{ opacity: 0 }}
           transition={{
@@ -69,7 +69,8 @@ const KenBurnsSlideshow: React.FC<{ isActive?: boolean }> = ({ isActive = true }
             x: { duration: 6.8, ease: 'linear' },
             y: { duration: 6.8, ease: 'linear' },
           }}
-          className="absolute inset-0 w-full h-full object-cover object-top filter sepia-[0.35] contrast-105 brightness-95"
+          style={{ objectPosition: current.position || 'center top' }}
+          className="absolute inset-0 w-full h-full object-cover filter sepia-[0.35] contrast-105 brightness-95"
         />
       </AnimatePresence>
 
@@ -136,6 +137,17 @@ export const GandhiSlide: React.FC<GandhiSlideProps> = ({
   };
 
   const filename = data.photo ? data.photo.split('/').pop() || data.photo : `gandhi-${data.no}.jpg`;
+
+  const getObjectPosition = (slideNo: number) => {
+    switch (slideNo) {
+      case 9:
+        return 'center 28%';
+      case 7:
+        return 'center 15%';
+      default:
+        return 'center top';
+    }
+  };
 
   return (
     <section className="relative w-full bg-[#FAF4E6] text-[#2A1A0E] p-5 sm:p-7 lg:p-10 flex flex-col justify-between overflow-hidden border-4 border-double border-[#7A1F1F] shadow-[0_20px_60px_rgba(26,15,7,0.7),inset_0_0_90px_rgba(184,134,43,0.12)] rounded-2xl parchment-vignette">
@@ -268,7 +280,8 @@ export const GandhiSlide: React.FC<GandhiSlideProps> = ({
                       onError={() => setImgError(true)}
                       whileHover={{ scale: 1.04 }}
                       transition={{ duration: 0.5, ease: 'easeOut' }}
-                      className="w-full h-full object-cover object-top filter sepia-[0.35] contrast-105 brightness-95 transition-transform duration-700"
+                      style={{ objectPosition: getObjectPosition(data.no) }}
+                      className="w-full h-full object-cover filter sepia-[0.35] contrast-105 brightness-95 transition-transform duration-700"
                     />
                     {/* Dark Inner Vignette Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F07]/90 via-transparent to-[#1A0F07]/30 pointer-events-none"></div>
