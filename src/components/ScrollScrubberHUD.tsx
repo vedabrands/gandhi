@@ -54,16 +54,16 @@ export const ScrollScrubberHUD: React.FC<ScrollScrubberHUDProps> = ({
   if (!visible) return null;
 
   const sections = [
-    { id: 0, label: 'I', name: 'THE FATHER' },
+    { id: 0, label: 'I', name: 'TOPIC' },
     { id: 1, label: 'II', name: 'WHO WAS GANDHI' },
-    { id: 2, label: 'III', name: 'EARLY LIFE' },
-    { id: 3, label: 'IV', name: 'SOUTH AFRICA' },
-    { id: 4, label: 'V', name: 'CORE PRINCIPLES' },
-    { id: 5, label: 'VI', name: 'MAJOR MOVEMENTS' },
-    { id: 6, label: 'VII', name: 'DANDI MARCH' },
-    { id: 7, label: 'VIII', name: 'VISION FOR SOCIETY' },
-    { id: 8, label: 'IX', name: 'GLOBAL INFLUENCE' },
-    { id: 9, label: 'X', name: 'MESSAGE FOR TODAY' },
+    { id: 2, label: 'III', name: 'CORE IDEAS' },
+    { id: 3, label: 'IV', name: "TODAY'S WORLD" },
+    { id: 4, label: 'V', name: 'AHIMSA' },
+    { id: 5, label: 'VI', name: 'TRUTH ONLINE' },
+    { id: 6, label: 'VII', name: 'SIMPLE LIVING' },
+    { id: 7, label: 'VIII', name: 'SWADESHI' },
+    { id: 8, label: 'IX', name: 'CRITICISMS' },
+    { id: 9, label: 'X', name: 'VERDICT' },
   ];
 
   return (

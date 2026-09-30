@@ -30,16 +30,16 @@ export const SlideDeckViewer: React.FC<SlideDeckViewerProps> = ({
   children,
 }) => {
   const slideTitles = [
-    { id: 0, title: 'THE FATHER', code: 'I', tag: 'COMMEMORATION' },
+    { id: 0, title: 'TOPIC', code: 'I', tag: '21ST CENTURY' },
     { id: 1, title: 'WHO WAS GANDHI', code: 'II', tag: 'IDENTITY & LEGACY' },
-    { id: 2, title: 'EARLY LIFE', code: 'III', tag: 'FORMATIVE YEARS' },
-    { id: 3, title: 'SOUTH AFRICA', code: 'IV', tag: 'THE AWAKENING' },
-    { id: 4, title: 'CORE PRINCIPLES', code: 'V', tag: 'MORAL FOUNDATION' },
-    { id: 5, title: 'MAJOR MOVEMENTS', code: 'VI', tag: 'MASS RESISTANCE' },
-    { id: 6, title: 'DANDI MARCH', code: 'VII', tag: 'DEFIANCE & SALT' },
-    { id: 7, title: 'VISION FOR SOCIETY', code: 'VIII', tag: 'SOCIAL HARMONY' },
-    { id: 8, title: 'GLOBAL INFLUENCE', code: 'IX', tag: 'WORLD HERITAGE' },
-    { id: 9, title: 'MESSAGE FOR TODAY', code: 'X', tag: 'LIVING RELEVANCE' },
+    { id: 2, title: 'CORE IDEAS', code: 'III', tag: 'PHILOSOPHY' },
+    { id: 3, title: "TODAY'S WORLD", code: 'IV', tag: 'MODERN CRISES' },
+    { id: 4, title: 'AHIMSA', code: 'V', tag: 'NON-VIOLENCE' },
+    { id: 5, title: 'TRUTH ONLINE', code: 'VI', tag: 'SATYA' },
+    { id: 6, title: 'SIMPLE LIVING', code: 'VII', tag: 'SUSTAINABILITY' },
+    { id: 7, title: 'SWADESHI', code: 'VIII', tag: 'LOCAL ECONOMY' },
+    { id: 8, title: 'CRITICISMS', code: 'IX', tag: 'CRITICAL DISCOURSE' },
+    { id: 9, title: 'VERDICT', code: 'X', tag: 'LIVING RELEVANCE' },
   ];
 
   // Helper for directed navigation

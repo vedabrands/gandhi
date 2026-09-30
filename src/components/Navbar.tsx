@@ -37,16 +37,16 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   const navPills = [
-    { id: 0, label: 'I • FATHER' },
-    { id: 1, label: 'II • MAHATMA' },
-    { id: 2, label: 'III • EARLY' },
-    { id: 3, label: 'IV • AFRICA' },
-    { id: 4, label: 'V • PRINCIPLES' },
-    { id: 5, label: 'VI • MOVEMENTS' },
-    { id: 6, label: 'VII • DANDI' },
-    { id: 7, label: 'VIII • VISION' },
-    { id: 8, label: 'IX • GLOBAL' },
-    { id: 9, label: 'X • MESSAGE' },
+    { id: 0, label: 'I • TOPIC' },
+    { id: 1, label: 'II • WHO WAS GANDHI' },
+    { id: 2, label: 'III • CORE IDEAS' },
+    { id: 3, label: 'IV • TODAY\'S WORLD' },
+    { id: 4, label: 'V • AHIMSA' },
+    { id: 5, label: 'VI • TRUTH ONLINE' },
+    { id: 6, label: 'VII • SIMPLE LIVING' },
+    { id: 7, label: 'VIII • SWADESHI' },
+    { id: 8, label: 'IX • CRITICISMS' },
+    { id: 9, label: 'X • VERDICT' },
   ];
 
   return (

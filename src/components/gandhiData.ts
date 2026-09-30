@@ -16,167 +16,165 @@ export const GANDHI_SLIDES: SlideData[] = [
   {
     no: 1,
     roman: 'I',
-    kicker: 'CHAPTER I • COMMEMORATION',
-    title: 'THE FATHER OF THE NATION',
-    sub: 'Mohandas Karamchand Gandhi (1869–1948) — The Architect of Non-Violent Resistance',
+    kicker: 'CHAPTER I • 21ST CENTURY INQUIRY',
+    title: 'IS GANDHIAN PHILOSOPHY STILL RELEVANT IN THE 21ST CENTURY?',
+    sub: 'An Exploration of Truth, Non-Violence, and Moral Courage in the Modern Age',
     points: [
-      'Born on 2 October 1869 in Porbandar, Gujarat, India.',
-      'Revered across India as the Father of the Nation (Rashtrapita).',
-      '2 October is celebrated nationwide as Gandhi Jayanti, a National Holiday in India.',
-      'Presented as an interactive tribute to his timeless ideals of Truth, Peace, and Courage.'
+      'Gandhi Jayanti, 2 October — Commemorating the global heritage of peace and truth.',
+      'Mohandas Karamchand Gandhi, 1869–1948 — Leader of India\'s non-violent freedom movement.',
+      'Presented by [Your Name] — Examining the enduring relevance of Gandhian ideals today.'
     ],
     photo: '/assets/image1.png',
-    caption: 'Mohandas Karamchand Gandhi in his timeless iconic portrait of peaceful resolve.',
-    quote: 'Generations to come will scarce believe that such a one as this ever in flesh and blood walked upon this earth. — Albert Einstein',
-    highlight: 'Presented by Team Gandhi Jayanti'
+    caption: 'Mohandas Karamchand Gandhi (1869–1948) — Father of the Nation and apostle of non-violence.',
+    video: '/assets/media1.mp4',
+    quote: 'My life is my message.',
+    highlight: 'Presented by [Your Name]'
   },
   {
     no: 2,
     roman: 'II',
     kicker: 'CHAPTER II • IDENTITY & LEGACY',
-    title: 'WHO WAS MAHATMA GANDHI',
-    sub: 'From a Barrister in London to the Moral Compass of a Global Revolution',
+    title: 'WHO WAS GANDHI?',
+    sub: 'From a Young Barrister in London to the Leader of a Global Movement',
     points: [
-      'Trained in jurisprudence and law at the Inner Temple in London.',
-      'Spearheaded India’s non-violent freedom struggle against British colonial rule.',
-      'Conferred the honorific title "Mahatma" (Great Soul) by Rabindranath Tagore and affectionately known as "Bapu".',
-      'Pioneered universal methods of peaceful protest that inspired civil rights movements across the globe.'
+      'Born 2 October 1869 in Porbandar, Gujarat, India.',
+      'Trained as a lawyer in London at the Inner Temple.',
+      'Led India\'s historic non-violent freedom struggle against colonial rule.',
+      'Called Mahatma (\'Great Soul\') and affectionately revered as Bapu (\'Father\').',
+      'The central question: do his ideas and methods still work in today\'s complex world?'
     ],
     photo: '/assets/image2.png',
     caption: 'Mahatma Gandhi spinning khadi on the charkha — a symbol of self-reliance and peace.',
-    quote: 'My life is my message.'
+    quote: 'In a gentle way, you can shake the world.'
   },
   {
     no: 3,
     roman: 'III',
-    kicker: 'CHAPTER III • FORMATIVE YEARS',
-    title: 'EARLY LIFE AND EDUCATION',
-    sub: 'Roots of Integrity, Deep Humility, and Pursuit of Knowledge',
+    kicker: 'CHAPTER III • PHILOSOPHICAL PILLARS',
+    title: 'THE CORE IDEAS',
+    sub: 'The Timeless Foundations of Gandhian Philosophy and Ethics',
     points: [
-      'Born to Karamchand Gandhi, Chief Minister of Porbandar, and deeply devout mother Putlibai.',
-      'Married Kasturba Kapadia at age 13 in accordance with contemporary customs.',
-      'Traveled to England in 1888 to study law at University College London and qualified as a barrister.',
-      'Sailed for South Africa in 1893 on a one-year legal assignment that transformed his life.'
+      'Satya (Truth) — Absolute adherence to truth and honesty in thought, word, and deed.',
+      'Ahimsa (Non-violence) — Active love, compassion, and refraining from harm against any living being.',
+      'Satyagraha (Peaceful resistance) — Fearless soul-force standing firm against injustice without malice.',
+      'Sarvodaya (Welfare of all) — Universal upliftment prioritizing the most vulnerable and marginalized.',
+      'Swadeshi (Self-reliance) — Fostering local production, community strength, and economic independence.',
+      'Simple living — Voluntary simplicity, mindful consumption, and harmony with the natural world.'
     ],
     photo: '/assets/image3.png',
-    caption: 'Young Mohandas Gandhi during his legal studies and early barrister career.',
-    quote: 'Truth resides in every human heart, and one has to search for it there.'
+    caption: 'Gandhi during his formative years formulating the core doctrines of Satyagraha.',
+    quote: 'Truth is the sovereign principle, which includes numerous other principles.'
   },
   {
     no: 4,
     roman: 'IV',
-    kicker: 'CHAPTER IV • THE AWAKENING',
-    title: 'THE SOUTH AFRICA CRUCIBLE',
-    sub: 'Pietermaritzburg 1893: The Spark that Ignited Modern Non-Violent Struggle',
+    kicker: 'CHAPTER IV • 21ST CENTURY REALITIES',
+    title: 'THE WORLD WE LIVE IN',
+    sub: 'The Urgent Humanitarian, Social, and Ecological Crises of Our Era',
     points: [
-      'Thrown off a train at Pietermaritzburg railway station in 1893 for refusing to vacate a first-class compartment.',
-      'Witnessed systemic racial prejudice and injustice against the Indian diaspora in Natal.',
-      'Conceptualized and formulated "Satyagraha" (the devotion and adherence to Truth through Non-Violence).',
-      'Dedicated 21 transformative years fighting for civil liberties before returning triumphantly to India in 1915.'
+      'Wars and conflict: Escalating geopolitical hostilities, armed warfare, and global instability.',
+      'Polarisation and hate online: Digital echo chambers, social fragmentation, and rising hostility.',
+      'Climate crisis: Global environmental degradation, extreme weather, and resource depletion.',
+      'Inequality: Widening socio-economic divides and unequal access to essential opportunities.',
+      'Misinformation: Rapid algorithmic dissemination of falsehoods eroding public trust.',
+      'Consumerism and waste: Hyper-materialistic lifestyles straining the planet\'s finite resources.'
     ],
     photo: '/assets/image4.png',
-    caption: 'Gandhi during his South Africa campaign establishing the Phoenix Settlement and Satyagraha.',
-    quote: 'They may torture my body, break my bones, even kill me. Then they will have my dead body, not my obedience.'
+    caption: 'The complex global landscapes demanding principled ethical solutions and compassionate leadership.',
+    quote: 'The world will live in peace only when the individuals composing it make up their minds to do so.'
   },
   {
     no: 5,
     roman: 'V',
-    kicker: 'CHAPTER V • MORAL FOUNDATION',
-    title: 'FIVE CORE PRINCIPLES',
-    sub: 'The Pillars of Satyagraha and Universal Moral Philosophy',
+    kicker: 'CHAPTER V • POWER OF NON-VIOLENCE',
+    title: 'AHIMSA IN ACTION',
+    sub: 'How Non-Violent Resistance Transformed Global Civil Rights and History',
     points: [
-      'SATYA (Truth): Absolute adherence to truth in thought, word, and deed as the ultimate reality.',
-      'AHIMSA (Non-Violence): Active, positive love and compassion; refraining from causing mental or physical harm.',
-      'SATYAGRAHA (Soul Force): Fearless, peaceful resistance against tyranny without malice towards the oppressor.',
-      'SARVODAYA (Universal Upliftment): Welfare and progress of all beings, beginning with the most marginalized.',
-      'SWADESHI (Self-Reliance): Economic independence through local production, indigenous crafts, and Khadi.'
+      'The US civil rights movement (Martin Luther King Jr.) and South African anti-apartheid struggle (Nelson Mandela) drew deeply on Gandhian ideas.',
+      'Chenoweth and Stephan\'s study (analyzing 323 campaigns from 1900 to 2006) found non-violent campaigns succeeded more often than violent ones.',
+      '2 October is recognized internationally by the United Nations as the International Day of Non-Violence.'
     ],
     photo: '/assets/image5.png',
-    caption: 'Gandhi addressing thousands with clarity, moral clarity, and non-violent conviction.',
-    quote: 'Non-violence is the greatest force at the disposal of mankind.'
+    caption: 'Historic non-violent demonstrations demonstrating the collective power of peaceful mass mobilization.',
+    quote: 'Non-violence is the greatest force at the disposal of mankind. — Mahatma Gandhi'
   },
   {
     no: 6,
     roman: 'VI',
-    kicker: 'CHAPTER VI • MASS RESISTANCE',
-    title: 'MAJOR NATIONAL MOVEMENTS',
-    sub: 'Four Epochal Campaigns that Dismantled Colonial Hegemony',
+    kicker: 'CHAPTER VI • TRUTH IN THE DIGITAL AGE',
+    title: 'SATYA IN THE AGE OF MISINFORMATION',
+    sub: 'Practicing Discernment, Integrity, and Civil Dialogue in a Connected Society',
     points: [
-      'CHAMPARAN SATYAGRAHA (1917): First major victory defending exploited indigo farmers in Bihar.',
-      'NON-COOPERATION MOVEMENT (1920–1922): Mass boycott of British goods, titles, legal courts, and institutions.',
-      'SALT MARCH & CIVIL DISOBEDIENCE (1930): Nationwide defiance of unjust colonial salt monopoly taxation.',
-      'QUIT INDIA MOVEMENT (1942): Final mass uprising with the historic clarion call "Do or Die" (Karo ya Maro).'
+      'Fake news spreads fast: Digital algorithms amplify sensationalism and falsehoods at unprecedented speed.',
+      'Verify before you speak or share: Upholding factual accuracy and critical thinking before disseminating information.',
+      'Truth-telling as a daily discipline: Living with intellectual honesty and moral transparency.',
+      'Dialogue instead of online outrage: Choosing constructive communication and empathy over reactionary anger.'
     ],
     photo: '/assets/image6.png',
-    caption: 'Mass mobilization during historic Satyagraha demonstrations across India.',
-    video: '/assets/media1.mp4',
-    quote: 'First they ignore you, then they laugh at you, then they fight you, then you win.'
+    caption: 'Navigating modern communication ecosystems with dedication to truth and constructive dialogue.',
+    quote: 'Morality is the basis of things, and truth is the substance of all morality.'
   },
   {
     no: 7,
     roman: 'VII',
-    kicker: 'CHAPTER VII • DEFIANCE & SALT',
-    title: 'THE HISTORIC DANDI MARCH',
-    sub: '24 Days, 240 Miles, 78 Marchers — The Pinch of Salt that Shook an Empire',
+    kicker: 'CHAPTER VII • ECOLOGICAL WISDOM',
+    title: 'SIMPLE LIVING AND THE PLANET',
+    sub: 'Sustainable Living, Mindful Consumption, and Climate Responsibility',
     points: [
-      'Commenced on 12 March 1930 from Sabarmati Ashram in Ahmedabad heading towards the Arabian Sea coast.',
-      'Started with 78 dedicated Satyagrahis; thousands joined along the 240-mile coastal route.',
-      'Reached the shores of Dandi on 6 April 1930, where Gandhi broke the Salt Law by lifting natural sea salt.',
-      'Galvanized over 60,000 peaceful arrests nationwide and captivated international press and global headlines.'
+      '\'The earth provides enough for everyone\'s needs, but not everyone\'s greed\' (attributed to Gandhi).',
+      'Direct links to modern sustainability, conscious minimalism, and circular resource use.',
+      'India\'s Mission LiFE (Lifestyle for Environment) actively promotes individual and community eco-friendly lifestyles.'
     ],
     photo: '/assets/image7.png',
-    caption: 'Mahatma Gandhi leading 78 trusted volunteers on the 240-mile march to Dandi in 1930.',
-    quote: 'With this salt, I am shaking the foundations of the British Empire.'
+    caption: 'Embracing sustainable practices and ecological balance for future generations.',
+    quote: 'The earth provides enough to satisfy every man\'s needs, but not every man\'s greed.'
   },
   {
     no: 8,
     roman: 'VIII',
-    kicker: 'CHAPTER VIII • SOCIAL HARMONY',
-    title: 'VISION FOR AN IDEAL SOCIETY',
-    sub: 'Constructive Program for Social Reformation, Dignity, and Human Harmony',
+    kicker: 'CHAPTER VIII • LOCAL ECONOMIES & DIGNITY',
+    title: 'SWADESHI AND SARVODAYA TODAY',
+    sub: 'Grassroots Empowerment, Inclusive Growth, and Universal Cleanliness',
     points: [
-      'Eradication of Untouchability: Fierce advocacy for caste equality and honoring all as Harijans (Children of God).',
-      'Communal & Religious Unity: Uncompromising brotherhood between Hindu, Muslim, Sikh, Christian, and all faiths.',
-      'Gram Swaraj (Village Republics): Self-sufficient rural economy powered by agriculture, handlooms, and cottage crafts.',
-      'Nai Talim (Basic Education): Holistic learning combining intellectual development, character building, and physical labor.',
-      'Sanitation & Cleanliness: Personal hygiene and community sanitation as an essential spiritual discipline.'
+      'Local economies and self-reliance: Strengthening local supply networks and supporting homegrown enterprise.',
+      'Khadi and village industries: Empowering rural artisans and promoting eco-conscious handloom textiles.',
+      'Inclusion and dignity for all: Ensuring that progress uplift the most disadvantaged in society.',
+      'Swachh Bharat Abhiyan: A nationwide sanitation and cleanliness movement launched on Gandhi Jayanti (2 Oct 2014).'
     ],
     photo: '/assets/image8.png',
-    caption: 'Bapu walking through rural villages promoting grassroots community empowerment and unity.',
-    quote: 'The best way to find yourself is to lose yourself in the service of others.'
+    caption: 'Community self-reliance, artisan empowerment, and public sanitation initiatives.',
+    quote: 'Recall the face of the poorest and the weakest person you have seen, and ask if your step will be of any use to them.'
   },
   {
     no: 9,
     roman: 'IX',
-    kicker: 'CHAPTER IX • WORLD HERITAGE',
-    title: 'GLOBAL INFLUENCE & LEGACY',
-    sub: 'Inspiring Civil Rights Champions and Global Peace Across Continents',
+    kicker: 'CHAPTER IX • CRITICAL PERSPECTIVE',
+    title: 'LIMITS AND CRITICISMS',
+    sub: 'Nuance, Context, and Thoughtful Adaptation in the Modern Era',
     points: [
-      'Dr. Martin Luther King Jr. adopted Gandhian non-violence as the cornerstone of the American Civil Rights Movement.',
-      'Nelson Mandela drew deep spiritual strength from Satyagraha in dismantling South African Apartheid.',
-      '2 October designated by the United Nations General Assembly as the International Day of Non-Violence.',
-      'Guiding light for human rights, environmental movements, disarmament summits, and peace activism worldwide.'
+      'Non-violence alone may not be enough when confronting extreme violence and ruthless authoritarian regimes.',
+      'Some of Gandhi\'s views (on caste and race during his early South Africa years) are legitimately criticised.',
+      'Ideas need thoughtful application and dynamic adaptation, not rigid or blind copying.'
     ],
     photo: '/assets/image9.png',
-    caption: 'World leaders and global freedom movements carrying forward Gandhi’s torch of Ahimsa.',
-    quote: 'Christ gave us the goals and Mahatma Gandhi the tactics. — Dr. Martin Luther King Jr.'
+    caption: 'Engaging critically with history to apply enduring principles to 21st-century democratic contexts.',
+    quote: 'I want the cultures of all lands to be blown about my house as freely as possible, but I refuse to be blown off my feet.'
   },
   {
     no: 10,
     roman: 'X',
     kicker: 'CHAPTER X • LIVING RELEVANCE',
-    title: 'MESSAGE FOR TODAY',
-    sub: 'Timeless Wisdom for a Fractured World — The Call to Conscience',
+    title: 'THE VERDICT: STILL RELEVANT',
+    sub: 'A Living Ethical Compass for Contemporary Life and Global Citizenship',
     points: [
-      '"Be the change you wish to see in the world" — Embody the values and compassion you demand from society.',
-      'Choose non-violent dialogue and empathy over aggression in personal, social, and digital spheres.',
-      'Embrace truth, honesty, moral clarity, and simplicity in lifestyle and governance.',
-      'Champion Swachh Bharat: Cleanliness in our environment, our thoughts, and our communities.',
-      'Celebrate pluralism and profound respect for every religion, culture, and individual identity.'
+      'A compass, not a rulebook: An enduring framework for moral decision-making in personal and public affairs.',
+      'Choose peace, truth, and simplicity in everyday choices, leadership, and community action.',
+      '"Be the change you wish to see in the world" (attributed to Gandhi) — Individual integrity inspires collective transformation.',
+      'Thank you! Jai Hind!'
     ],
     photo: '/assets/image1.png',
-    caption: 'Let us carry forward Bapu’s eternal message of Truth, Love, Peace, and Human Dignity.',
-    quote: 'In a gentle way, you can shake the world.',
+    caption: 'The enduring light of Gandhian philosophy guiding conscience, justice, and humanity.',
+    quote: 'You must be the change you wish to see in the world.',
     highlight: 'Thank you! Jai Hind!'
   }
 ];
