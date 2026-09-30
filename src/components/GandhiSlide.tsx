@@ -29,9 +29,9 @@ interface GandhiSlideProps {
 const ROMAN_NUMERALS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
 const KEN_BURNS_IMAGES = [
-  { src: '/gandhi/gandhi-2.jpg', label: 'Gandhi, London, 1931' },
-  { src: '/gandhi/gandhi-9.jpg', label: 'Portrait, late 1930s' },
-  { src: '/gandhi/gandhi-7.jpg', label: 'Gandhi at Dandi, 5 April 1930' },
+  { src: './gandhi/gandhi-2.jpg', label: 'Gandhi, London, 1931' },
+  { src: './gandhi/gandhi-9.jpg', label: 'Portrait, late 1930s' },
+  { src: './gandhi/gandhi-7.jpg', label: 'Gandhi at Dandi, 5 April 1930' },
 ];
 
 /** Looping Ken Burns slideshow for Slide 1 fallback */

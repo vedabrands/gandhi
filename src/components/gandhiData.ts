@@ -25,9 +25,9 @@ export const GANDHI_SLIDES: SlideData[] = [
       'Mohandas Karamchand Gandhi, 1869–1948 — Leader of India\'s non-violent freedom movement.',
       'Presented by [Your Name] — Examining the enduring relevance of Gandhian ideals today.'
     ],
-    photo: '/gandhi/gandhi-2.jpg',
+    photo: './gandhi/gandhi-2.jpg',
     caption: 'Mohandas Karamchand Gandhi (1869–1948) — Father of the Nation and apostle of non-violence.',
-    video: '/gandhi/gandhi-video.mp4',
+    video: './gandhi/gandhi-video.mp4',
     quote: 'My life is my message.',
     highlight: 'Presented by [Your Name]'
   },
@@ -44,7 +44,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       'Called Mahatma (\'Great Soul\') and affectionately revered as Bapu (\'Father\').',
       'The central question: do his ideas and methods still work in today\'s complex world?'
     ],
-    photo: '/gandhi/gandhi-2.jpg',
+    photo: './gandhi/gandhi-2.jpg',
     caption: 'Gandhi, London, 1931',
     quote: 'In a gentle way, you can shake the world.'
   },
@@ -62,7 +62,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       'Swadeshi (Self-reliance) — Fostering local production, community strength, and economic independence.',
       'Simple living — Voluntary simplicity, mindful consumption, and harmony with the natural world.'
     ],
-    photo: '/gandhi/gandhi-3.jpg',
+    photo: './gandhi/gandhi-3.jpg',
     caption: 'Gandhi and Kasturba, South Africa, 1902',
     quote: 'Truth is the sovereign principle, which includes numerous other principles.'
   },
@@ -80,7 +80,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       'Misinformation: Rapid algorithmic dissemination of falsehoods eroding public trust.',
       'Consumerism and waste: Hyper-materialistic lifestyles straining the planet\'s finite resources.'
     ],
-    photo: '/gandhi/gandhi-4.jpg',
+    photo: './gandhi/gandhi-4.jpg',
     caption: 'Gandhi and Nehru, Mumbai, 1946',
     quote: 'The world will live in peace only when the individuals composing it make up their minds to do so.'
   },
@@ -95,7 +95,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       'Chenoweth and Stephan\'s study (analyzing 323 campaigns from 1900 to 2006) found non-violent campaigns succeeded more often than violent ones.',
       '2 October is recognized internationally by the United Nations as the International Day of Non-Violence.'
     ],
-    photo: '/gandhi/gandhi-5.jpg',
+    photo: './gandhi/gandhi-5.jpg',
     caption: 'Gandhi with Abdul Ghaffar Khan, 1940',
     quote: 'Non-violence is the greatest force at the disposal of mankind. — Mahatma Gandhi'
   },
@@ -111,7 +111,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       'Truth-telling as a daily discipline: Living with intellectual honesty and moral transparency.',
       'Dialogue instead of online outrage: Choosing constructive communication and empathy over reactionary anger.'
     ],
-    photo: '/gandhi/gandhi-6.jpg',
+    photo: './gandhi/gandhi-6.jpg',
     caption: 'The Salt March, 1930',
     quote: 'Morality is the basis of things, and truth is the substance of all morality.'
   },
@@ -126,7 +126,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       'Direct links to modern sustainability, conscious minimalism, and circular resource use.',
       'India\'s Mission LiFE (Lifestyle for Environment) actively promotes individual and community eco-friendly lifestyles.'
     ],
-    photo: '/gandhi/gandhi-7.jpg',
+    photo: './gandhi/gandhi-7.jpg',
     caption: 'Gandhi at Dandi, 5 April 1930',
     quote: 'The earth provides enough to satisfy every man\'s needs, but not every man\'s greed.'
   },
@@ -142,7 +142,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       'Inclusion and dignity for all: Ensuring that progress uplift the most disadvantaged in society.',
       'Swachh Bharat Abhiyan: A nationwide sanitation and cleanliness movement launched on Gandhi Jayanti (2 Oct 2014).'
     ],
-    photo: '/gandhi/gandhi-8.jpg',
+    photo: './gandhi/gandhi-8.jpg',
     caption: 'Gandhi and Nehru, Quit India session, 1942',
     quote: 'Recall the face of the poorest and the weakest person you have seen, and ask if your step will be of any use to them.'
   },
@@ -157,7 +157,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       'Some of Gandhi\'s views (on caste and race during his early South Africa years) are legitimately criticised.',
       'Ideas need thoughtful application and dynamic adaptation, not rigid or blind copying.'
     ],
-    photo: '/gandhi/gandhi-9.jpg',
+    photo: './gandhi/gandhi-9.jpg',
     caption: 'Portrait, late 1930s',
     quote: 'I want the cultures of all lands to be blown about my house as freely as possible, but I refuse to be blown off my feet.'
   },
@@ -173,7 +173,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       '"Be the change you wish to see in the world" (attributed to Gandhi) — Individual integrity inspires collective transformation.',
       'Thank you! Jai Hind!'
     ],
-    photo: '/gandhi/gandhi-10.jpg',
+    photo: './gandhi/gandhi-10.jpg',
     caption: 'Gandhi, London, 1931',
     quote: 'You must be the change you wish to see in the world.',
     highlight: 'Thank you! Jai Hind!',
