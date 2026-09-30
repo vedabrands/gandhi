@@ -23,13 +23,13 @@ export const GANDHI_SLIDES: SlideData[] = [
     points: [
       'Gandhi Jayanti, 2 October — Commemorating the global heritage of peace and truth.',
       'Mohandas Karamchand Gandhi, 1869–1948 — Leader of India\'s non-violent freedom movement.',
-      'Presented by [Your Name] — Examining the enduring relevance of Gandhian ideals today.'
+      'Presented by Dev Vashisht — Examining the enduring relevance of Gandhian ideals today.'
     ],
     photo: './gandhi/gandhi-2.jpg',
     caption: 'Mohandas Karamchand Gandhi (1869–1948) — Father of the Nation and apostle of non-violence.',
     video: './gandhi/gandhi-video.mp4',
     quote: 'My life is my message.',
-    highlight: 'Presented by [Your Name]'
+    highlight: 'Presented by Dev Vashisht'
   },
   {
     no: 2,
