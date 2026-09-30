@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Sparkles,
   Quote,
-  Play,
   RotateCcw,
   Compass,
   Heart,
@@ -29,6 +28,71 @@ interface GandhiSlideProps {
 
 const ROMAN_NUMERALS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
+const KEN_BURNS_IMAGES = [
+  { src: '/gandhi/gandhi-2.jpg', label: 'Gandhi, London, 1931' },
+  { src: '/gandhi/gandhi-9.jpg', label: 'Portrait, late 1930s' },
+  { src: '/gandhi/gandhi-7.jpg', label: 'Gandhi at Dandi, 5 April 1930' },
+];
+
+/** Looping Ken Burns slideshow for Slide 1 fallback */
+const KenBurnsSlideshow: React.FC<{ isActive?: boolean }> = ({ isActive = true }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!isActive) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % KEN_BURNS_IMAGES.length);
+    }, 6667); // 3 images across 20s total loop
+    return () => clearInterval(interval);
+  }, [isActive]);
+
+  const current = KEN_BURNS_IMAGES[currentIndex];
+
+  return (
+    <div className="relative w-full h-full overflow-hidden bg-[#1A0F07]">
+      <AnimatePresence mode="sync">
+        <motion.img
+          key={currentIndex}
+          src={current.src}
+          alt={current.label}
+          initial={{ opacity: 0, scale: 1, x: 0, y: 0 }}
+          animate={{
+            opacity: 1,
+            scale: [1, 1.14],
+            x: currentIndex % 2 === 0 ? [0, -10] : [0, 10],
+            y: [0, -6],
+          }}
+          exit={{ opacity: 0 }}
+          transition={{
+            opacity: { duration: 1.4, ease: 'easeInOut' },
+            scale: { duration: 6.8, ease: 'linear' },
+            x: { duration: 6.8, ease: 'linear' },
+            y: { duration: 6.8, ease: 'linear' },
+          }}
+          className="absolute inset-0 w-full h-full object-cover object-top filter sepia-[0.35] contrast-105 brightness-95"
+        />
+      </AnimatePresence>
+
+      {/* Inner Vignette Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F07]/90 via-transparent to-[#1A0F07]/30 pointer-events-none z-10" />
+
+      {/* Slideshow Progress Indicators */}
+      <div className="absolute bottom-2.5 right-2.5 z-20 flex items-center gap-1.5 bg-[#1A0F07]/75 backdrop-blur-sm px-2.5 py-1 rounded-full border border-[#B8862B]/50 shadow-md">
+        {KEN_BURNS_IMAGES.map((_, idx) => (
+          <div
+            key={idx}
+            className={`h-1.5 rounded-full transition-all duration-500 ${
+              currentIndex === idx
+                ? 'bg-[#D4AF37] w-3.5 shadow-[0_0_8px_#D4AF37]'
+                : 'bg-[#FAF4E6]/40 w-1.5'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export const GandhiSlide: React.FC<GandhiSlideProps> = ({
   data,
   totalSlides = 10,
@@ -38,7 +102,8 @@ export const GandhiSlide: React.FC<GandhiSlideProps> = ({
 }) => {
   const isPhotoLeft = data.no % 2 === 0;
   const [hoveredPointIdx, setHoveredPointIdx] = useState<number | null>(null);
-  const [isVideoPlaying, setIsVideoPlaying] = useState<boolean>(false);
+  const [videoFailed, setVideoFailed] = useState<boolean>(false);
+  const [imgError, setImgError] = useState<boolean>(false);
 
   const romanNumber = data.roman || ROMAN_NUMERALS[data.no - 1] || `${data.no}`;
   const totalRoman = ROMAN_NUMERALS[totalSlides - 1] || `${totalSlides}`;
@@ -69,6 +134,8 @@ export const GandhiSlide: React.FC<GandhiSlideProps> = ({
         return <Sparkles className="w-4 h-4 text-[#B8862B]" />;
     }
   };
+
+  const filename = data.photo ? data.photo.split('/').pop() || data.photo : `gandhi-${data.no}.jpg`;
 
   return (
     <section className="relative w-full bg-[#FAF4E6] text-[#2A1A0E] p-5 sm:p-7 lg:p-10 flex flex-col justify-between overflow-hidden border-4 border-double border-[#7A1F1F] shadow-[0_20px_60px_rgba(26,15,7,0.7),inset_0_0_90px_rgba(184,134,43,0.12)] rounded-2xl parchment-vignette">
@@ -153,53 +220,61 @@ export const GandhiSlide: React.FC<GandhiSlideProps> = ({
         >
           <BlurReveal delay={0.2} yOffset={15} className="h-full flex flex-col">
             <motion.div
-              whileHover={{ scale: 1.015, y: -2 }}
-              transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+              whileHover={{ scale: 1.02, rotate: isPhotoLeft ? 0.6 : -0.6 }}
+              transition={{ type: 'spring', stiffness: 320, damping: 25 }}
               className="relative flex-1 bg-[#2A1A0E] rounded-xl overflow-hidden border-2 border-[#B8862B] shadow-2xl transition-all duration-300 flex flex-col justify-between group p-3.5"
             >
               {/* Gold Diamond Corner Studs on Photo Frame */}
-              <div className="absolute top-1 left-1 w-3 h-3 rotate-45 bg-[#D4AF37] border border-[#7A1F1F] shadow-sm z-20 pointer-events-none"></div>
-              <div className="absolute top-1 right-1 w-3 h-3 rotate-45 bg-[#D4AF37] border border-[#7A1F1F] shadow-sm z-20 pointer-events-none"></div>
-              <div className="absolute bottom-1 left-1 w-3 h-3 rotate-45 bg-[#D4AF37] border border-[#7A1F1F] shadow-sm z-20 pointer-events-none"></div>
-              <div className="absolute bottom-1 right-1 w-3 h-3 rotate-45 bg-[#D4AF37] border border-[#7A1F1F] shadow-sm z-20 pointer-events-none"></div>
+              <div className="absolute top-1 left-1 w-3 h-3 rotate-45 bg-[#D4AF37] border border-[#7A1F1F] shadow-sm z-30 pointer-events-none"></div>
+              <div className="absolute top-1 right-1 w-3 h-3 rotate-45 bg-[#D4AF37] border border-[#7A1F1F] shadow-sm z-30 pointer-events-none"></div>
+              <div className="absolute bottom-1 left-1 w-3 h-3 rotate-45 bg-[#D4AF37] border border-[#7A1F1F] shadow-sm z-30 pointer-events-none"></div>
+              <div className="absolute bottom-1 right-1 w-3 h-3 rotate-45 bg-[#D4AF37] border border-[#7A1F1F] shadow-sm z-30 pointer-events-none"></div>
 
-              {/* Image Frame */}
-              <div className="relative w-full h-64 sm:h-72 lg:h-80 rounded-lg overflow-hidden bg-[#1A0F07] border border-[#5C3F2B]">
-                {data.video && isVideoPlaying ? (
-                  <video
-                    src={data.video}
-                    controls
-                    autoPlay
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <>
-                    <img
-                      src={data.photo}
-                      alt={data.title}
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 filter sepia-[0.2] contrast-105 brightness-95"
-                      loading="lazy"
+              {/* Image / Video / Ken Burns Frame */}
+              <div className="relative w-full h-64 sm:h-72 lg:h-80 aspect-[4/3] sm:aspect-[16/11] lg:aspect-auto rounded-lg overflow-hidden bg-[#1A0F07] border border-[#5C3F2B]">
+                {data.no === 1 ? (
+                  /* Slide 1 Media: Video or Ken Burns Slideshow Fallback */
+                  !videoFailed && data.video ? (
+                    <video
+                      src={data.video}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      onError={() => setVideoFailed(true)}
+                      className="w-full h-full object-cover object-top filter sepia-[0.35] contrast-105 brightness-95"
                     />
-                    {/* Vignette Overlay */}
+                  ) : (
+                    <KenBurnsSlideshow isActive={isActive} />
+                  )
+                ) : imgError ? (
+                  /* Parchment Placeholder Fallback if Missing */
+                  <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-[#F1E4C3] text-[#7A1F1F] font-heading border-2 border-dashed border-[#B8862B]/70 rounded-md">
+                    <Sparkles className="w-8 h-8 text-[#B8862B] mb-2" />
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#7A1F1F]">
+                      ARCHIVAL FOLIO RECORD
+                    </span>
+                    <span className="text-xs font-caption italic text-[#4A3220] mt-2 bg-[#FAF4E6] px-3 py-1 rounded border border-[#B8862B]/40">
+                      Missing: {filename}
+                    </span>
+                  </div>
+                ) : (
+                  /* Slide Image with Sepia & Subtle Hover */
+                  <>
+                    <motion.img
+                      src={data.photo}
+                      alt={data.caption || data.title}
+                      loading={data.no >= 3 ? 'lazy' : 'eager'}
+                      onError={() => setImgError(true)}
+                      whileHover={{ scale: 1.04 }}
+                      transition={{ duration: 0.5, ease: 'easeOut' }}
+                      className="w-full h-full object-cover object-top filter sepia-[0.35] contrast-105 brightness-95 transition-transform duration-700"
+                    />
+                    {/* Dark Inner Vignette Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1A0F07]/90 via-transparent to-[#1A0F07]/30 pointer-events-none"></div>
 
-                    {/* Video Play Overlay */}
-                    {data.video && (
-                      <button
-                        onClick={() => {
-                          sounds.playScan();
-                          setIsVideoPlaying(true);
-                        }}
-                        className="absolute inset-0 flex items-center justify-center bg-[#1A0F07]/40 hover:bg-[#1A0F07]/60 transition-colors group/btn cursor-pointer"
-                      >
-                        <div className="w-14 h-14 rounded-full bg-[#7A1F1F] hover:bg-[#9E2D2D] text-[#F1E4C3] border-2 border-[#D4AF37] flex items-center justify-center shadow-xl group-hover/btn:scale-110 transition-transform">
-                          <Play className="w-6 h-6 fill-[#F1E4C3] ml-0.5" />
-                        </div>
-                      </button>
-                    )}
-
                     {/* Top Ornate Banner */}
-                    <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded bg-[#2A1A0E]/85 backdrop-blur-sm border border-[#B8862B] text-[#F1E4C3] text-[10px] font-heading tracking-widest uppercase shadow">
+                    <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded bg-[#2A1A0E]/85 backdrop-blur-sm border border-[#B8862B] text-[#F1E4C3] text-[10px] font-heading tracking-widest uppercase shadow z-20">
                       ARCHIVE • CHAPTER {romanNumber}
                     </div>
                   </>

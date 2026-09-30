@@ -25,9 +25,9 @@ export const GANDHI_SLIDES: SlideData[] = [
       'Mohandas Karamchand Gandhi, 1869–1948 — Leader of India\'s non-violent freedom movement.',
       'Presented by [Your Name] — Examining the enduring relevance of Gandhian ideals today.'
     ],
-    photo: '/assets/image1.png',
+    photo: '/gandhi/gandhi-2.jpg',
     caption: 'Mohandas Karamchand Gandhi (1869–1948) — Father of the Nation and apostle of non-violence.',
-    video: '/assets/media1.mp4',
+    video: '/gandhi/gandhi-video.mp4',
     quote: 'My life is my message.',
     highlight: 'Presented by [Your Name]'
   },
@@ -45,7 +45,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       'The central question: do his ideas and methods still work in today\'s complex world?'
     ],
     photo: '/gandhi/gandhi-2.jpg',
-    caption: 'Mahatma Gandhi spinning khadi on the charkha — a symbol of self-reliance and peace.',
+    caption: 'Gandhi, London, 1931',
     quote: 'In a gentle way, you can shake the world.'
   },
   {
@@ -63,7 +63,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       'Simple living — Voluntary simplicity, mindful consumption, and harmony with the natural world.'
     ],
     photo: '/gandhi/gandhi-3.jpg',
-    caption: 'Gandhi during his formative years formulating the core doctrines of Satyagraha.',
+    caption: 'Gandhi and Kasturba, South Africa, 1902',
     quote: 'Truth is the sovereign principle, which includes numerous other principles.'
   },
   {
@@ -81,7 +81,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       'Consumerism and waste: Hyper-materialistic lifestyles straining the planet\'s finite resources.'
     ],
     photo: '/gandhi/gandhi-4.jpg',
-    caption: 'The complex global landscapes demanding principled ethical solutions and compassionate leadership.',
+    caption: 'Gandhi and Nehru, Mumbai, 1946',
     quote: 'The world will live in peace only when the individuals composing it make up their minds to do so.'
   },
   {
@@ -96,7 +96,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       '2 October is recognized internationally by the United Nations as the International Day of Non-Violence.'
     ],
     photo: '/gandhi/gandhi-5.jpg',
-    caption: 'Historic non-violent demonstrations demonstrating the collective power of peaceful mass mobilization.',
+    caption: 'Gandhi with Abdul Ghaffar Khan, 1940',
     quote: 'Non-violence is the greatest force at the disposal of mankind. — Mahatma Gandhi'
   },
   {
@@ -112,7 +112,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       'Dialogue instead of online outrage: Choosing constructive communication and empathy over reactionary anger.'
     ],
     photo: '/gandhi/gandhi-6.jpg',
-    caption: 'Navigating modern communication ecosystems with dedication to truth and constructive dialogue.',
+    caption: 'The Salt March, 1930',
     quote: 'Morality is the basis of things, and truth is the substance of all morality.'
   },
   {
@@ -127,7 +127,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       'India\'s Mission LiFE (Lifestyle for Environment) actively promotes individual and community eco-friendly lifestyles.'
     ],
     photo: '/gandhi/gandhi-7.jpg',
-    caption: 'Embracing sustainable practices and ecological balance for future generations.',
+    caption: 'Gandhi at Dandi, 5 April 1930',
     quote: 'The earth provides enough to satisfy every man\'s needs, but not every man\'s greed.'
   },
   {
@@ -143,7 +143,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       'Swachh Bharat Abhiyan: A nationwide sanitation and cleanliness movement launched on Gandhi Jayanti (2 Oct 2014).'
     ],
     photo: '/gandhi/gandhi-8.jpg',
-    caption: 'Community self-reliance, artisan empowerment, and public sanitation initiatives.',
+    caption: 'Gandhi and Nehru, Quit India session, 1942',
     quote: 'Recall the face of the poorest and the weakest person you have seen, and ask if your step will be of any use to them.'
   },
   {
@@ -158,7 +158,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       'Ideas need thoughtful application and dynamic adaptation, not rigid or blind copying.'
     ],
     photo: '/gandhi/gandhi-9.jpg',
-    caption: 'Engaging critically with history to apply enduring principles to 21st-century democratic contexts.',
+    caption: 'Portrait, late 1930s',
     quote: 'I want the cultures of all lands to be blown about my house as freely as possible, but I refuse to be blown off my feet.'
   },
   {
@@ -174,7 +174,7 @@ export const GANDHI_SLIDES: SlideData[] = [
       'Thank you! Jai Hind!'
     ],
     photo: '/gandhi/gandhi-10.jpg',
-    caption: 'The enduring light of Gandhian philosophy guiding conscience, justice, and humanity.',
+    caption: 'Gandhi, London, 1931',
     quote: 'You must be the change you wish to see in the world.',
     highlight: 'Thank you! Jai Hind!',
     credit: 'Photos: Wikimedia Commons (public domain)'
