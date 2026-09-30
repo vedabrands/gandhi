@@ -4,21 +4,13 @@ import { BackgroundParticles } from './components/BackgroundParticles';
 import { Navbar } from './components/Navbar';
 import { SlideDeckViewer } from './components/SlideDeckViewer';
 import { ScrollScrubberHUD } from './components/ScrollScrubberHUD';
-
-// 8 Slide Sections
-import { HeroSection } from './components/sections/HeroSection';
-import { ActionSection } from './components/sections/ActionSection';
-import { IntelligenceSection } from './components/sections/IntelligenceSection';
-import { UnderstandingSection } from './components/sections/UnderstandingSection';
-import { EngineSection } from './components/sections/EngineSection';
-import { EvolutionSection } from './components/sections/EvolutionSection';
-import { ManifestoSection } from './components/sections/ManifestoSection';
-import { ConclusionSection } from './components/sections/ConclusionSection';
+import { GandhiSlide } from './components/GandhiSlide';
+import { GANDHI_SLIDES } from './components/gandhiData';
 
 export const App: React.FC = () => {
   const [viewMode, setViewMode] = useState<'scroll' | 'deck'>('scroll');
   const [currentSlide, setCurrentSlide] = useState<number>(0);
-  const totalSlides = 8;
+  const totalSlides = GANDHI_SLIDES.length; // 10 slides
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
 
   // Smooth Scroll with Lenis
@@ -87,29 +79,6 @@ export const App: React.FC = () => {
     }
   };
 
-  const renderSlideContent = (index: number) => {
-    switch (index) {
-      case 0:
-        return <HeroSection />;
-      case 1:
-        return <ActionSection />;
-      case 2:
-        return <IntelligenceSection />;
-      case 3:
-        return <UnderstandingSection />;
-      case 4:
-        return <EngineSection />;
-      case 5:
-        return <EvolutionSection />;
-      case 6:
-        return <ManifestoSection onRestart={() => handleSelectSlide(0)} />;
-      case 7:
-        return <ConclusionSection onRestart={() => handleSelectSlide(0)} isActive={currentSlide === 7} isDeck={viewMode === 'deck'} />;
-      default:
-        return <HeroSection />;
-    }
-  };
-
   return (
     <div className="relative min-h-screen bg-[#0C0F12] text-white selection:bg-[#B81D13] selection:text-white font-sans">
       {/* 3D WebGL Background Particles */}
@@ -136,37 +105,21 @@ export const App: React.FC = () => {
       {viewMode === 'scroll' ? (
         // Continuous Interactive Scroll Mode
         <main className="relative z-10 w-full pt-16 max-w-7xl mx-auto px-2 sm:px-4 space-y-8 pb-16">
-          <div ref={(el) => (sectionRefs.current[0] = el)} id="slide-0">
-            <HeroSection />
-          </div>
-
-          <div ref={(el) => (sectionRefs.current[1] = el)} id="slide-1">
-            <ActionSection />
-          </div>
-
-          <div ref={(el) => (sectionRefs.current[2] = el)} id="slide-2">
-            <IntelligenceSection />
-          </div>
-
-          <div ref={(el) => (sectionRefs.current[3] = el)} id="slide-3">
-            <UnderstandingSection />
-          </div>
-
-          <div ref={(el) => (sectionRefs.current[4] = el)} id="slide-4">
-            <EngineSection />
-          </div>
-
-          <div ref={(el) => (sectionRefs.current[5] = el)} id="slide-5">
-            <EvolutionSection />
-          </div>
-
-          <div ref={(el) => (sectionRefs.current[6] = el)} id="slide-6">
-            <ManifestoSection onRestart={() => handleSelectSlide(0)} />
-          </div>
-
-          <div ref={(el) => (sectionRefs.current[7] = el)} id="slide-7">
-            <ConclusionSection onRestart={() => handleSelectSlide(0)} isActive={currentSlide === 7} isDeck={viewMode === 'deck'} />
-          </div>
+          {GANDHI_SLIDES.map((slide, idx) => (
+            <div
+              key={slide.no}
+              ref={(el) => (sectionRefs.current[idx] = el)}
+              id={`slide-${idx}`}
+            >
+              <GandhiSlide
+                data={slide}
+                totalSlides={totalSlides}
+                onRestart={() => handleSelectSlide(0)}
+                isActive={currentSlide === idx}
+                isDeck={false}
+              />
+            </div>
+          ))}
         </main>
       ) : (
         // Slide-by-Slide Deck Mode
@@ -178,7 +131,13 @@ export const App: React.FC = () => {
           onSelectSlide={handleSelectSlide}
           onToggleViewMode={() => setViewMode('scroll')}
         >
-          {renderSlideContent(currentSlide)}
+          <GandhiSlide
+            data={GANDHI_SLIDES[currentSlide] || GANDHI_SLIDES[0]}
+            totalSlides={totalSlides}
+            onRestart={() => handleSelectSlide(0)}
+            isActive={true}
+            isDeck={true}
+          />
         </SlideDeckViewer>
       )}
     </div>

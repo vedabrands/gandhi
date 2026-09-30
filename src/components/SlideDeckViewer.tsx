@@ -28,14 +28,16 @@ export const SlideDeckViewer: React.FC<SlideDeckViewerProps> = ({
   children,
 }) => {
   const slideTitles = [
-    { id: 0, title: 'SENTINEL VISION', code: 'PROT-01', tag: 'HERO // COLD REALITY' },
-    { id: 1, title: 'DEATH OF LATENCY', code: 'ACT-02', tag: 'REAL-TIME TRIAGE' },
-    { id: 2, title: 'TRI-TIER PIPELINE', code: 'PIPE-03', tag: 'EDGE TO LLM' },
-    { id: 3, title: 'INTENT NOT MOTION', code: 'CTX-04', tag: 'SPATIO-TEMPORAL' },
-    { id: 4, title: 'INFERENCE ENGINE', code: 'ENG-05', tag: 'ZERO RE-ID CLOUD' },
-    { id: 5, title: 'MUNICIPAL MESH', code: 'MESH-06', tag: 'MULTI-CAMERA GRID' },
-    { id: 6, title: 'MANIFESTO & SPECS', code: 'INV-07', tag: 'FIRST PRINCIPLES' },
-    { id: 7, title: 'TRANSMISSION END', code: 'END-08', tag: 'MISSION COMPLETE' },
+    { id: 0, title: 'THE FATHER', code: '01', tag: 'COMMEMORATION' },
+    { id: 1, title: 'WHO WAS GANDHI', code: '02', tag: 'IDENTITY & LEGACY' },
+    { id: 2, title: 'EARLY LIFE', code: '03', tag: 'FORMATIVE YEARS' },
+    { id: 3, title: 'SOUTH AFRICA', code: '04', tag: 'THE AWAKENING' },
+    { id: 4, title: 'CORE PRINCIPLES', code: '05', tag: 'MORAL FOUNDATION' },
+    { id: 5, title: 'MAJOR MOVEMENTS', code: '06', tag: 'MASS RESISTANCE' },
+    { id: 6, title: 'DANDI MARCH', code: '07', tag: 'DEFIANCE & SALT' },
+    { id: 7, title: 'VISION FOR SOCIETY', code: '08', tag: 'SOCIAL HARMONY' },
+    { id: 8, title: 'GLOBAL INFLUENCE', code: '09', tag: 'WORLD HERITAGE' },
+    { id: 9, title: 'MESSAGE FOR TODAY', code: '10', tag: 'LIVING RELEVANCE' },
   ];
 
   // Helper for directed navigation
@@ -62,7 +64,7 @@ export const SlideDeckViewer: React.FC<SlideDeckViewerProps> = ({
     }
   }, [currentSlide, onPrev]);
 
-  // Keyboard Navigation Listener (Left/Right, Space, 1-7, M)
+  // Keyboard Navigation Listener (Left/Right, Space, 1-9, 0, M)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (['input', 'textarea'].includes((e.target as HTMLElement)?.tagName?.toLowerCase())) return;
@@ -76,7 +78,9 @@ export const SlideDeckViewer: React.FC<SlideDeckViewerProps> = ({
       } else if (e.key.toLowerCase() === 'm') {
         sounds.playClick();
         onToggleViewMode();
-      } else if (e.key >= '1' && e.key <= '8') {
+      } else if (e.key === '0') {
+        navigateTo(9);
+      } else if (e.key >= '1' && e.key <= '9') {
         const slideIdx = parseInt(e.key, 10) - 1;
         if (slideIdx < totalSlides) {
           navigateTo(slideIdx);
@@ -152,7 +156,7 @@ export const SlideDeckViewer: React.FC<SlideDeckViewerProps> = ({
 
                 {/* Chapter Label (Responsive) */}
                 <span
-                  className={`text-[9px] font-mono font-bold tracking-tight uppercase truncate transition-colors hidden md:block max-w-[100px] text-center ${
+                  className={`text-[9px] font-mono font-bold tracking-tight uppercase truncate transition-colors hidden md:block max-w-[90px] text-center ${
                     isActive ? 'text-[#B81D13]' : 'text-zinc-500 group-hover:text-zinc-300'
                   }`}
                 >
@@ -198,7 +202,7 @@ export const SlideDeckViewer: React.FC<SlideDeckViewerProps> = ({
           {/* Center: Navigation Shortcut Guide */}
           <div className="hidden md:flex items-center gap-2 text-[10px] text-zinc-400 bg-[#12161E] px-3 py-1 rounded-full border border-[#202733]">
             <Compass className="w-3.5 h-3.5 text-[#B81D13]" />
-            <span>PRESS SPACE OR ARROW KEYS (← / →) TO NAVIGATE</span>
+            <span>PRESS SPACE OR ARROWS (← / →), 1-9 / 0 FOR SLIDES, M FOR MODE</span>
           </div>
 
           {/* Right: Next Slide Button & Switch Mode */}
@@ -212,7 +216,7 @@ export const SlideDeckViewer: React.FC<SlideDeckViewerProps> = ({
               title="Switch to Continuous Scroll Mode (Press M)"
             >
               <Layers className="w-3.5 h-3.5 text-[#B81D13]" />
-              <span className="hidden sm:inline">CONTINUOUS MODE</span>
+              <span className="hidden sm:inline">STORY MODE</span>
             </button>
 
             <button
