@@ -48,7 +48,7 @@ SLIDES_DATA = [
     "photo": 'public/gandhi/gandhi-2.jpg',
     "caption": 'Mohandas Karamchand Gandhi (1869–1948) — Father of the Nation and apostle of non-violence.',
     "quote": 'My life is my message.',
-    "highlight": 'Presented by [Your Name]'
+    "highlight": 'Presented by Dev Vashisht'
   },
   {
     "no": 2,
