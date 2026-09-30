@@ -28,7 +28,7 @@ export const ScrollScrubberHUD: React.FC<ScrollScrubberHUDProps> = ({
 
   // Dynamic percentage display state
   const [percentDisplay, setPercentDisplay] = useState(0);
-  const [scrollDirection, setScrollDirection] = useState<'IDLE' | 'DOWN' | 'UP'>('IDLE');
+  const [scrollDirection, setScrollDirection] = useState<'REST' | 'DESCEND' | 'ASCEND'>('REST');
   const [lastScrollY, setLastScrollY] = useState(0);
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
 
@@ -42,9 +42,9 @@ export const ScrollScrubberHUD: React.FC<ScrollScrubberHUDProps> = ({
   useEffect(() => {
     const unsubscribe = scrollY.on('change', (current) => {
       if (current > lastScrollY + 2) {
-        setScrollDirection('DOWN');
+        setScrollDirection('DESCEND');
       } else if (current < lastScrollY - 2) {
-        setScrollDirection('UP');
+        setScrollDirection('ASCEND');
       }
       setLastScrollY(current);
     });
@@ -54,79 +54,79 @@ export const ScrollScrubberHUD: React.FC<ScrollScrubberHUDProps> = ({
   if (!visible) return null;
 
   const sections = [
-    { id: 0, label: '01', name: 'THE FATHER', badge: '01' },
-    { id: 1, label: '02', name: 'WHO WAS GANDHI', badge: '02' },
-    { id: 2, label: '03', name: 'EARLY LIFE', badge: '03' },
-    { id: 3, label: '04', name: 'SOUTH AFRICA', badge: '04' },
-    { id: 4, label: '05', name: 'CORE PRINCIPLES', badge: '05' },
-    { id: 5, label: '06', name: 'MAJOR MOVEMENTS', badge: '06' },
-    { id: 6, label: '07', name: 'DANDI MARCH', badge: '07' },
-    { id: 7, label: '08', name: 'VISION FOR SOCIETY', badge: '08' },
-    { id: 8, label: '09', name: 'GLOBAL INFLUENCE', badge: '09' },
-    { id: 9, label: '10', name: 'MESSAGE FOR TODAY', badge: '10' },
+    { id: 0, label: 'I', name: 'THE FATHER' },
+    { id: 1, label: 'II', name: 'WHO WAS GANDHI' },
+    { id: 2, label: 'III', name: 'EARLY LIFE' },
+    { id: 3, label: 'IV', name: 'SOUTH AFRICA' },
+    { id: 4, label: 'V', name: 'CORE PRINCIPLES' },
+    { id: 5, label: 'VI', name: 'MAJOR MOVEMENTS' },
+    { id: 6, label: 'VII', name: 'DANDI MARCH' },
+    { id: 7, label: 'VIII', name: 'VISION FOR SOCIETY' },
+    { id: 8, label: 'IX', name: 'GLOBAL INFLUENCE' },
+    { id: 9, label: 'X', name: 'MESSAGE FOR TODAY' },
   ];
 
   return (
     <>
       {/* Top Hairline Scroll Progress Bar (Below Navbar) */}
-      <div className="fixed top-[53px] left-0 right-0 z-40 h-[3px] bg-[#12161A]/40 overflow-hidden pointer-events-none">
+      <div className="fixed top-[53px] left-0 right-0 z-40 h-[3px] bg-[#1A0F07]/60 overflow-hidden pointer-events-none">
         <motion.div
           style={{ width: laserTopWidth }}
-          className="h-full bg-gradient-to-r from-[#B81D13] via-amber-500 to-[#B81D13] relative"
+          className="h-full bg-gradient-to-r from-[#7A1F1F] via-[#D4AF37] to-[#7A1F1F] relative"
         >
           <motion.div
             style={{ left: laserPulseX }}
-            className="absolute top-0 w-8 h-full bg-white blur-[2px] opacity-90"
+            className="absolute top-0 w-8 h-full bg-[#FAF7F0] blur-[2px] opacity-90"
           />
         </motion.div>
       </div>
 
-      {/* Floating Tactical Telemetry Scrubber Rail (Right Side) */}
+      {/* Floating Gilded Telemetry Scrubber Rail (Right Side) */}
       <div className="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center gap-2 select-none pointer-events-auto">
-        {/* Compass & Dial HUD */}
+        {/* Astrolabe / Cartographic Dial HUD */}
         <motion.div
           whileHover={{ scale: 1.08 }}
           transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-          className="relative bg-[#0C0F12]/90 backdrop-blur-md p-2 rounded-xl border border-[#232B36] shadow-2xl flex flex-col items-center gap-1 cursor-default text-[#EDE3D8]"
+          className="relative bg-[#1A0F07]/95 backdrop-blur-md p-2.5 rounded-xl border-2 border-[#5C3F2B] shadow-2xl flex flex-col items-center gap-1 cursor-default text-[#F1E4C3]"
         >
-          <div className="flex items-center justify-between w-full text-[9px] font-mono font-bold text-zinc-400">
-            <span>SCRUB</span>
-            <span className="text-[#B81D13]">{percentDisplay}%</span>
+          <div className="flex items-center justify-between w-full text-[10px] font-heading font-semibold text-[#D4BE88]">
+            <span>FOLIO</span>
+            <span className="text-[#D4AF37]">{percentDisplay}%</span>
           </div>
 
-          {/* Rotating Gyro Compass */}
-          <div className="relative w-9 h-9 flex items-center justify-center my-0.5">
+          {/* Rotating Gilded Compass */}
+          <div className="relative w-10 h-10 flex items-center justify-center my-0.5">
             {/* Outer ring */}
-            <div className="absolute inset-0 rounded-full border border-[#2A3442] [border-style:dashed]"></div>
+            <div className="absolute inset-0 rounded-full border border-[#B8862B]/50 [border-style:dashed]"></div>
             {/* Cardinal marks */}
-            <div className="absolute -top-0.5 text-[7px] font-mono text-zinc-500 font-bold">N</div>
-            <div className="absolute -bottom-0.5 text-[7px] font-mono text-zinc-500 font-bold">S</div>
-            <div className="absolute -left-0.5 text-[7px] font-mono text-zinc-500 font-bold">W</div>
-            <div className="absolute -right-0.5 text-[7px] font-mono text-zinc-500 font-bold">E</div>
+            <div className="absolute -top-0.5 text-[7px] font-heading text-[#D4BE88] font-bold">N</div>
+            <div className="absolute -bottom-0.5 text-[7px] font-heading text-[#D4BE88] font-bold">S</div>
+            <div className="absolute -left-0.5 text-[7px] font-heading text-[#D4BE88] font-bold">W</div>
+            <div className="absolute -right-0.5 text-[7px] font-heading text-[#D4BE88] font-bold">E</div>
 
             {/* Rotating needle */}
             <motion.div
               style={{ rotate: compassRotation }}
               className="w-full h-full flex items-center justify-center"
             >
-              <div className="w-0.5 h-6 bg-gradient-to-t from-zinc-600 via-white to-[#B81D13] relative rounded-full shadow-[0_0_8px_rgba(184,29,19,0.8)]">
-                <div className="absolute -top-1 -left-0.5 w-1.5 h-1.5 bg-[#B81D13] rounded-full"></div>
+              <div className="w-0.5 h-7 bg-gradient-to-t from-[#5C3F2B] via-[#FAF7F0] to-[#D4AF37] relative rounded-full shadow-[0_0_8px_rgba(212,175,55,0.8)]">
+                <div className="absolute -top-1 -left-0.5 w-1.5 h-1.5 bg-[#7A1F1F] border border-[#D4AF37] rounded-full"></div>
               </div>
             </motion.div>
           </div>
 
-          <div className="text-[8px] font-mono text-zinc-500 text-center uppercase tracking-wider">
+          <div className="text-[8px] font-heading text-[#D4BE88] text-center uppercase tracking-wider">
             {scrollDirection}
           </div>
         </motion.div>
 
         {/* Section Node Rail */}
-        <div className="relative bg-[#0C0F12]/90 backdrop-blur-md py-2 px-1.5 rounded-xl border border-[#232B36] shadow-2xl flex flex-col items-center gap-1.5">
+        <div className="relative bg-[#1A0F07]/95 backdrop-blur-md py-2 px-1.5 rounded-xl border-2 border-[#5C3F2B] shadow-2xl flex flex-col items-center gap-1.5">
           {/* Vertical Laser Fill Line */}
-          <div className="absolute top-3 bottom-3 left-1/2 -translate-x-1/2 w-0.5 bg-[#232B36] rounded-full overflow-hidden">
+          <div className="absolute top-3 bottom-3 left-1/2 -translate-x-1/2 w-0.5 bg-[#3D2717] rounded-full overflow-hidden">
             <motion.div
               style={{ height: laserRailHeight }}
-              className="w-full bg-gradient-to-b from-[#B81D13] via-amber-500 to-[#B81D13]"
+              className="w-full bg-gradient-to-b from-[#7A1F1F] via-[#D4AF37] to-[#7A1F1F]"
             />
           </div>
 
@@ -149,14 +149,14 @@ export const ScrollScrubberHUD: React.FC<ScrollScrubberHUDProps> = ({
                   sounds.playClick();
                   onSelectSlide(sec.id);
                 }}
-                className={`relative z-10 w-6 h-6 rounded-md flex items-center justify-center font-mono text-[9px] font-bold transition-all duration-200 cursor-pointer ${
+                className={`relative z-10 w-6 h-6 rounded-md flex items-center justify-center font-heading text-[9px] font-bold transition-all duration-200 cursor-pointer ${
                   isActive
-                    ? 'bg-[#B81D13] text-white shadow-[0_0_12px_rgba(184,29,19,0.7)] scale-110 border border-white/50'
+                    ? 'bg-[#7A1F1F] text-[#FAF7F0] shadow-[0_0_12px_rgba(184,134,43,0.8)] scale-110 border border-[#D4AF37]'
                     : isHovered
-                    ? 'bg-white text-[#B81D13] shadow-md border border-white'
-                    : 'bg-[#141920] text-zinc-400 hover:text-white border border-[#232B36]'
+                    ? 'bg-[#FAF4E6] text-[#7A1F1F] shadow-md border border-[#D4AF37]'
+                    : 'bg-[#2A1A0E] text-[#D4BE88] hover:text-[#FAF7F0] border border-[#5C3F2B]'
                 }`}
-                title={`Jump to Slide ${sec.label}: ${sec.name}`}
+                title={`Jump to Folio ${sec.label}: ${sec.name}`}
               >
                 {sec.label}
 
@@ -165,9 +165,9 @@ export const ScrollScrubberHUD: React.FC<ScrollScrubberHUDProps> = ({
                   <motion.div
                     initial={{ opacity: 0, x: 8 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="absolute right-8 top-1/2 -translate-y-1/2 px-2.5 py-1 rounded bg-[#10141A] border border-[#2A3442] text-white text-[10px] font-mono font-bold tracking-wider uppercase whitespace-nowrap shadow-xl flex items-center gap-1.5"
+                    className="absolute right-8 top-1/2 -translate-y-1/2 px-3 py-1 rounded-lg bg-[#1A0F07] border border-[#B8862B] text-[#F1E4C3] text-[11px] font-heading font-semibold tracking-wider uppercase whitespace-nowrap shadow-xl flex items-center gap-1.5"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#B81D13]"></span>
+                    <span className="w-1.5 h-1.5 rotate-45 bg-[#D4AF37]"></span>
                     {sec.name}
                   </motion.div>
                 )}
@@ -185,12 +185,13 @@ export const ScrollScrubberHUD: React.FC<ScrollScrubberHUDProps> = ({
             sounds.playClick();
             onSelectSlide(0);
           }}
-          className="p-1.5 rounded-xl bg-[#141920] hover:bg-[#B81D13] text-zinc-400 hover:text-white border border-[#232B36] hover:border-white/50 transition-all shadow-lg flex items-center justify-center cursor-pointer group"
-          title="Scroll Back to Top"
+          className="p-1.5 rounded-xl bg-[#2A1A0E] hover:bg-[#7A1F1F] text-[#D4BE88] hover:text-[#FAF7F0] border border-[#5C3F2B] hover:border-[#D4AF37] transition-all shadow-lg flex items-center justify-center cursor-pointer group"
+          title="Return to Genesis"
         >
-          <ChevronUp className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />
+          <ChevronUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
         </motion.button>
       </div>
     </>
   );
 };
+export default ScrollScrubberHUD;

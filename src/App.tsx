@@ -80,11 +80,11 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#0C0F12] text-white selection:bg-[#B81D13] selection:text-white font-sans">
-      {/* 3D WebGL Background Particles */}
+    <div className="relative min-h-screen bg-[#2A1A0E] text-[#F1E4C3] selection:bg-[#7A1F1F] selection:text-[#F1E4C3] font-body">
+      {/* 3D WebGL Background Golden Particles */}
       <BackgroundParticles />
 
-      {/* Top Fixed Tactical Navbar */}
+      {/* Top Fixed Medieval Navbar */}
       <Navbar
         currentSlide={currentSlide}
         totalSlides={totalSlides}

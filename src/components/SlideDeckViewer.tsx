@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   ChevronLeft,
   ChevronRight,
-  Layers,
-  Compass
+  Scroll,
+  BookOpen
 } from 'lucide-react';
 import { sounds } from './AudioController';
 
@@ -18,6 +18,8 @@ interface SlideDeckViewerProps {
   children: React.ReactNode;
 }
 
+const ROMAN_NUMERALS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+
 export const SlideDeckViewer: React.FC<SlideDeckViewerProps> = ({
   currentSlide,
   totalSlides,
@@ -28,16 +30,16 @@ export const SlideDeckViewer: React.FC<SlideDeckViewerProps> = ({
   children,
 }) => {
   const slideTitles = [
-    { id: 0, title: 'THE FATHER', code: '01', tag: 'COMMEMORATION' },
-    { id: 1, title: 'WHO WAS GANDHI', code: '02', tag: 'IDENTITY & LEGACY' },
-    { id: 2, title: 'EARLY LIFE', code: '03', tag: 'FORMATIVE YEARS' },
-    { id: 3, title: 'SOUTH AFRICA', code: '04', tag: 'THE AWAKENING' },
-    { id: 4, title: 'CORE PRINCIPLES', code: '05', tag: 'MORAL FOUNDATION' },
-    { id: 5, title: 'MAJOR MOVEMENTS', code: '06', tag: 'MASS RESISTANCE' },
-    { id: 6, title: 'DANDI MARCH', code: '07', tag: 'DEFIANCE & SALT' },
-    { id: 7, title: 'VISION FOR SOCIETY', code: '08', tag: 'SOCIAL HARMONY' },
-    { id: 8, title: 'GLOBAL INFLUENCE', code: '09', tag: 'WORLD HERITAGE' },
-    { id: 9, title: 'MESSAGE FOR TODAY', code: '10', tag: 'LIVING RELEVANCE' },
+    { id: 0, title: 'THE FATHER', code: 'I', tag: 'COMMEMORATION' },
+    { id: 1, title: 'WHO WAS GANDHI', code: 'II', tag: 'IDENTITY & LEGACY' },
+    { id: 2, title: 'EARLY LIFE', code: 'III', tag: 'FORMATIVE YEARS' },
+    { id: 3, title: 'SOUTH AFRICA', code: 'IV', tag: 'THE AWAKENING' },
+    { id: 4, title: 'CORE PRINCIPLES', code: 'V', tag: 'MORAL FOUNDATION' },
+    { id: 5, title: 'MAJOR MOVEMENTS', code: 'VI', tag: 'MASS RESISTANCE' },
+    { id: 6, title: 'DANDI MARCH', code: 'VII', tag: 'DEFIANCE & SALT' },
+    { id: 7, title: 'VISION FOR SOCIETY', code: 'VIII', tag: 'SOCIAL HARMONY' },
+    { id: 8, title: 'GLOBAL INFLUENCE', code: 'IX', tag: 'WORLD HERITAGE' },
+    { id: 9, title: 'MESSAGE FOR TODAY', code: 'X', tag: 'LIVING RELEVANCE' },
   ];
 
   // Helper for directed navigation
@@ -93,12 +95,11 @@ export const SlideDeckViewer: React.FC<SlideDeckViewerProps> = ({
   }, [handleNext, handlePrev, onToggleViewMode, navigateTo, totalSlides]);
 
   const currentInfo = slideTitles[currentSlide] || slideTitles[0];
+  const currentRoman = ROMAN_NUMERALS[currentSlide] || `${currentSlide + 1}`;
+  const totalRoman = ROMAN_NUMERALS[totalSlides - 1] || `${totalSlides}`;
 
   return (
-    <div className="relative w-full min-h-screen bg-[#0C0F12] pt-14 pb-20 overflow-x-hidden flex flex-col justify-between select-none">
-      {/* Background Subtle Grid Texture */}
-      <div className="absolute inset-0 pointer-events-none opacity-25 bg-[radial-gradient(#21262D_1px,transparent_1px)] [background-size:24px_24px]"></div>
-
+    <div className="relative w-full min-h-screen bg-[#2A1A0E] pt-14 pb-20 overflow-x-hidden flex flex-col justify-between select-none">
       {/* Main Slide Transition Stage */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-2 sm:px-4 flex-1 flex items-center justify-center my-auto py-2">
         <AnimatePresence mode="wait">
@@ -108,15 +109,15 @@ export const SlideDeckViewer: React.FC<SlideDeckViewerProps> = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 1.01, y: -12 }}
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full shadow-2xl rounded-2xl overflow-hidden border-2 border-[#232B36]"
+            className="w-full shadow-2xl rounded-2xl overflow-hidden"
           >
             {children}
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Floating Bottom Mission-Control Scrubber HUD */}
-      <div className="fixed bottom-3 left-1/2 -translate-x-1/2 z-50 w-[96%] max-w-5xl bg-[#0F131A]/95 backdrop-blur-xl px-4 py-2.5 rounded-2xl border border-[#232B38] shadow-[0_20px_50px_rgba(0,0,0,0.8)] flex flex-col gap-2">
+      {/* Floating Bottom Medieval Codex Scrubber HUD */}
+      <div className="fixed bottom-3 left-1/2 -translate-x-1/2 z-50 w-[96%] max-w-5xl bg-[#1A0F07]/95 backdrop-blur-xl px-4 py-2.5 rounded-2xl border-2 border-[#5C3F2B] shadow-[0_20px_50px_rgba(0,0,0,0.85)] flex flex-col gap-2">
         {/* Interactive Milestone Timeline Scrubber */}
         <div className="relative w-full flex items-center justify-between gap-1 sm:gap-2">
           {slideTitles.map((slide, idx) => {
@@ -132,16 +133,16 @@ export const SlideDeckViewer: React.FC<SlideDeckViewerProps> = ({
                   }}
                   onMouseEnter={() => sounds.playHover()}
                   className="w-full relative py-1 focus:outline-none cursor-pointer"
-                  title={`Jump to Slide ${idx + 1}: ${slide.title}`}
+                  title={`Jump to Folio ${slide.code}: ${slide.title}`}
                 >
                   {/* Scrubber Segment Rail */}
                   <div
                     className={`h-1.5 w-full rounded-full transition-all duration-300 ${
                       isActive
-                        ? 'bg-[#B81D13] shadow-[0_0_12px_rgba(184,29,19,0.8)] h-2'
+                        ? 'bg-[#7A1F1F] shadow-[0_0_12px_rgba(184,134,43,0.8)] border border-[#D4AF37] h-2'
                         : isPast
-                        ? 'bg-zinc-600 hover:bg-zinc-400'
-                        : 'bg-zinc-800 hover:bg-zinc-600'
+                        ? 'bg-[#5C3F2B] hover:bg-[#B8862B]'
+                        : 'bg-[#3D2717] hover:bg-[#5C3F2B]'
                     }`}
                   />
 
@@ -149,18 +150,18 @@ export const SlideDeckViewer: React.FC<SlideDeckViewerProps> = ({
                   {isActive && (
                     <motion.div
                       layoutId="activeScrubPin"
-                      className="absolute -top-1 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#B81D13] shadow-[0_0_10px_#B81D13]"
+                      className="absolute -top-1 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rotate-45 bg-[#D4AF37] border border-[#7A1F1F] shadow-[0_0_10px_#D4AF37]"
                     />
                   )}
                 </button>
 
-                {/* Chapter Label (Responsive) */}
+                {/* Chapter Label */}
                 <span
-                  className={`text-[9px] font-mono font-bold tracking-tight uppercase truncate transition-colors hidden md:block max-w-[90px] text-center ${
-                    isActive ? 'text-[#B81D13]' : 'text-zinc-500 group-hover:text-zinc-300'
+                  className={`text-[9px] font-heading font-semibold tracking-tight uppercase truncate transition-colors hidden md:block max-w-[90px] text-center ${
+                    isActive ? 'text-[#D4AF37]' : 'text-[#D4BE88]/60 group-hover:text-[#D4BE88]'
                   }`}
                 >
-                  {slide.title}
+                  {slide.code} • {slide.title}
                 </span>
               </div>
             );
@@ -168,41 +169,41 @@ export const SlideDeckViewer: React.FC<SlideDeckViewerProps> = ({
         </div>
 
         {/* Primary Controls Row */}
-        <div className="flex items-center justify-between pt-1 border-t border-[#1C232E] font-mono text-xs">
+        <div className="flex items-center justify-between pt-1 border-t border-[#3D2717] font-heading text-xs">
           {/* Left: Prev Slide Button & Current Slide Spec */}
           <div className="flex items-center gap-3">
             <button
               onClick={handlePrev}
               disabled={currentSlide === 0}
-              className={`px-3 py-1.5 rounded-xl font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+              className={`px-3 py-1.5 rounded-xl font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
                 currentSlide === 0
-                  ? 'opacity-25 cursor-not-allowed text-zinc-600 border border-zinc-800'
-                  : 'bg-[#151B24] text-white hover:bg-[#B81D13] border border-[#2B3542] hover:border-[#B81D13] shadow-md hover:scale-105 active:scale-95'
+                  ? 'opacity-25 cursor-not-allowed text-[#D4BE88]/40 border border-[#3D2717]'
+                  : 'bg-[#2A1A0E] text-[#FAF7F0] hover:bg-[#7A1F1F] border border-[#5C3F2B] hover:border-[#D4AF37] shadow-md hover:scale-105 active:scale-95'
               }`}
-              title="Previous Slide (Left Arrow / Backspace)"
+              title="Previous Folio (Left Arrow / Backspace)"
             >
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronLeft className="w-4 h-4 text-[#D4AF37]" />
               <span className="hidden sm:inline">PREV</span>
             </button>
 
             <div className="flex items-center gap-2">
-              <span className="font-display text-lg text-white tracking-wider">
-                {String(currentSlide + 1).padStart(2, '0')}
+              <span className="font-display font-bold text-base text-[#FAF7F0] tracking-wider">
+                {currentRoman}
               </span>
-              <span className="text-zinc-600 font-bold">/</span>
-              <span className="text-zinc-500 font-bold">
-                {String(totalSlides).padStart(2, '0')}
+              <span className="text-[#5C3F2B] font-bold">/</span>
+              <span className="text-[#D4BE88] font-bold">
+                {totalRoman}
               </span>
-              <span className="hidden lg:inline text-xs font-tactical text-zinc-400 font-semibold px-2 py-0.5 rounded bg-[#141820] border border-[#232B36]">
+              <span className="hidden lg:inline text-xs font-heading text-[#FAF4E6] font-semibold px-2.5 py-0.5 rounded-lg bg-[#2A1A0E] border border-[#5C3F2B]">
                 {currentInfo.title}
               </span>
             </div>
           </div>
 
           {/* Center: Navigation Shortcut Guide */}
-          <div className="hidden md:flex items-center gap-2 text-[10px] text-zinc-400 bg-[#12161E] px-3 py-1 rounded-full border border-[#202733]">
-            <Compass className="w-3.5 h-3.5 text-[#B81D13]" />
-            <span>PRESS SPACE OR ARROWS (← / →), 1-9 / 0 FOR SLIDES, M FOR MODE</span>
+          <div className="hidden md:flex items-center gap-2 text-[10px] text-[#D4BE88] bg-[#2A1A0E] px-3.5 py-1 rounded-full border border-[#5C3F2B]">
+            <BookOpen className="w-3.5 h-3.5 text-[#D4AF37]" />
+            <span>ARROWS (← / →), SPACE, 1-9 / 0 FOR FOLIOS, M FOR MODE</span>
           </div>
 
           {/* Right: Next Slide Button & Switch Mode */}
@@ -212,25 +213,25 @@ export const SlideDeckViewer: React.FC<SlideDeckViewerProps> = ({
                 sounds.playClick();
                 onToggleViewMode();
               }}
-              className="px-2.5 py-1.5 rounded-xl bg-[#151B24] hover:bg-zinc-800 text-zinc-300 hover:text-white border border-[#2B3542] transition-all flex items-center gap-1.5 text-xs font-bold cursor-pointer"
+              className="px-2.5 py-1.5 rounded-xl bg-[#2A1A0E] hover:bg-[#3D2717] text-[#D4BE88] hover:text-[#FAF7F0] border border-[#5C3F2B] transition-all flex items-center gap-1.5 text-xs font-semibold cursor-pointer"
               title="Switch to Continuous Scroll Mode (Press M)"
             >
-              <Layers className="w-3.5 h-3.5 text-[#B81D13]" />
+              <Scroll className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span className="hidden sm:inline">STORY MODE</span>
             </button>
 
             <button
               onClick={handleNext}
               disabled={currentSlide === totalSlides - 1}
-              className={`px-3 py-1.5 rounded-xl font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+              className={`px-3 py-1.5 rounded-xl font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
                 currentSlide === totalSlides - 1
-                  ? 'opacity-25 cursor-not-allowed text-zinc-600 border border-zinc-800'
-                  : 'bg-[#B81D13] text-white hover:bg-red-600 border border-red-500/50 shadow-[0_0_15px_rgba(184,29,19,0.5)] hover:scale-105 active:scale-95'
+                  ? 'opacity-25 cursor-not-allowed text-[#D4BE88]/40 border border-[#3D2717]'
+                  : 'bg-[#7A1F1F] text-[#FAF7F0] hover:bg-[#9E2D2D] border border-[#D4AF37] shadow-[0_0_15px_rgba(184,134,43,0.4)] hover:scale-105 active:scale-95'
               }`}
-              title="Next Slide (Right Arrow / Space)"
+              title="Next Folio (Right Arrow / Space)"
             >
               <span className="hidden sm:inline">NEXT</span>
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-4 h-4 text-[#D4AF37]" />
             </button>
           </div>
         </div>

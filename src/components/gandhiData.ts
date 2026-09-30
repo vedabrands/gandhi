@@ -1,5 +1,6 @@
 export interface SlideData {
   no: number;
+  roman: string;
   kicker: string;
   title: string;
   sub: string;
@@ -14,7 +15,8 @@ export interface SlideData {
 export const GANDHI_SLIDES: SlideData[] = [
   {
     no: 1,
-    kicker: 'COMMEMORATION // 02 OCTOBER',
+    roman: 'I',
+    kicker: 'CHAPTER I • COMMEMORATION',
     title: 'THE FATHER OF THE NATION',
     sub: 'Mohandas Karamchand Gandhi (1869–1948) — The Architect of Non-Violent Resistance',
     points: [
@@ -30,7 +32,8 @@ export const GANDHI_SLIDES: SlideData[] = [
   },
   {
     no: 2,
-    kicker: 'IDENTITY & LEGACY // MAHATMA',
+    roman: 'II',
+    kicker: 'CHAPTER II • IDENTITY & LEGACY',
     title: 'WHO WAS MAHATMA GANDHI',
     sub: 'From a Barrister in London to the Moral Compass of a Global Revolution',
     points: [
@@ -45,7 +48,8 @@ export const GANDHI_SLIDES: SlideData[] = [
   },
   {
     no: 3,
-    kicker: 'FOUNDATION // FORMATIVE YEARS',
+    roman: 'III',
+    kicker: 'CHAPTER III • FORMATIVE YEARS',
     title: 'EARLY LIFE AND EDUCATION',
     sub: 'Roots of Integrity, Deep Humility, and Pursuit of Knowledge',
     points: [
@@ -60,7 +64,8 @@ export const GANDHI_SLIDES: SlideData[] = [
   },
   {
     no: 4,
-    kicker: 'CATALYST // THE AWAKENING',
+    roman: 'IV',
+    kicker: 'CHAPTER IV • THE AWAKENING',
     title: 'THE SOUTH AFRICA CRUCIBLE',
     sub: 'Pietermaritzburg 1893: The Spark that Ignited Modern Non-Violent Struggle',
     points: [
@@ -75,7 +80,8 @@ export const GANDHI_SLIDES: SlideData[] = [
   },
   {
     no: 5,
-    kicker: 'PHILOSOPHY // MORAL FOUNDATION',
+    roman: 'V',
+    kicker: 'CHAPTER V • MORAL FOUNDATION',
     title: 'FIVE CORE PRINCIPLES',
     sub: 'The Pillars of Satyagraha and Universal Moral Philosophy',
     points: [
@@ -91,7 +97,8 @@ export const GANDHI_SLIDES: SlideData[] = [
   },
   {
     no: 6,
-    kicker: 'MASS RESISTANCE // CHRONOLOGY',
+    roman: 'VI',
+    kicker: 'CHAPTER VI • MASS RESISTANCE',
     title: 'MAJOR NATIONAL MOVEMENTS',
     sub: 'Four Epochal Campaigns that Dismantled Colonial Hegemony',
     points: [
@@ -107,7 +114,8 @@ export const GANDHI_SLIDES: SlideData[] = [
   },
   {
     no: 7,
-    kicker: 'DEFIANCE // 1930 SALT MARCH',
+    roman: 'VII',
+    kicker: 'CHAPTER VII • DEFIANCE & SALT',
     title: 'THE HISTORIC DANDI MARCH',
     sub: '24 Days, 240 Miles, 78 Marchers — The Pinch of Salt that Shook an Empire',
     points: [
@@ -122,7 +130,8 @@ export const GANDHI_SLIDES: SlideData[] = [
   },
   {
     no: 8,
-    kicker: 'UTOPIA & HARMONY // SOCIAL VISION',
+    roman: 'VIII',
+    kicker: 'CHAPTER VIII • SOCIAL HARMONY',
     title: 'VISION FOR AN IDEAL SOCIETY',
     sub: 'Constructive Program for Social Reformation, Dignity, and Human Harmony',
     points: [
@@ -138,7 +147,8 @@ export const GANDHI_SLIDES: SlideData[] = [
   },
   {
     no: 9,
-    kicker: 'INTERNATIONAL IMPACT // WORLD HERITAGE',
+    roman: 'IX',
+    kicker: 'CHAPTER IX • WORLD HERITAGE',
     title: 'GLOBAL INFLUENCE & LEGACY',
     sub: 'Inspiring Civil Rights Champions and Global Peace Across Continents',
     points: [
@@ -153,7 +163,8 @@ export const GANDHI_SLIDES: SlideData[] = [
   },
   {
     no: 10,
-    kicker: 'INVOCATION // LIVING RELEVANCE',
+    roman: 'X',
+    kicker: 'CHAPTER X • LIVING RELEVANCE',
     title: 'MESSAGE FOR TODAY',
     sub: 'Timeless Wisdom for a Fractured World — The Call to Conscience',
     points: [
