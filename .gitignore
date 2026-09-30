@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 *.zip
+processed_images/
 
 # Editor directories and files
 .vscode/*
