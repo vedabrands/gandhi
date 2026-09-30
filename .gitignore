@@ -13,6 +13,7 @@ dist-ssr
 *.local
 *.zip
 processed_images/
+gandhi-project-bundle/
 
 # Editor directories and files
 .vscode/*
