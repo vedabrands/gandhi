@@ -211,6 +211,11 @@ export const GandhiSlide: React.FC<GandhiSlideProps> = ({
                 <p className="text-sm font-caption italic text-[#FAF4E6] leading-snug">
                   {data.caption}
                 </p>
+                {data.credit && (
+                  <p className="text-[11px] font-caption italic text-[#D4BE88] mt-1.5 pt-1.5 border-t border-[#5C3F2B]/60">
+                    ❦ {data.credit}
+                  </p>
+                )}
               </div>
 
               {/* Ornate Quote Card */}
